@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "158557514982",
+    "firebase_url": "https://market-online-tiet.firebaseio.com",
+    "project_id": "market-online-tiet",
+    "storage_bucket": "market-online-tiet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158557514982:android:94580a6c772f1cce389f27",
+        "android_client_info": {
+          "package_name": "com.shouryashrey.market_online"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158557514982-keg9deib95v33ijqgvep1t7r195h86aa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgWWU7n1O_uKNkn_KnV8OcwdjVQeXZiAw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158557514982-keg9deib95v33ijqgvep1t7r195h86aa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
