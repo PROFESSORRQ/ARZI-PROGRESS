@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 
 import '../Screens/HomeScreen.dart';
 
-class userSignup extends StatefulWidget {
+class UserSignup extends StatefulWidget {
   @override
-  _userSignupState createState() => _userSignupState();
+  _UserSignupState createState() => _UserSignupState();
 }
 
-class _userSignupState extends State<userSignup> {
+class _UserSignupState extends State<UserSignup> {
 
   TextStyle style = TextStyle(fontSize: 20.0,color: Colors.white);
 

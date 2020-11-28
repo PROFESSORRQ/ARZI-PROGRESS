@@ -7,19 +7,19 @@ import 'package:market_online/Screens/HomeScreen.dart';
 import 'package:market_online/animation/background_painter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class userLogin extends StatefulWidget {
+class UserLogin extends StatefulWidget {
   @override
-  _userLoginState createState() => _userLoginState();
+  _UserLoginState createState() => _UserLoginState();
 }
 
-class _userLoginState extends State<userLogin> with SingleTickerProviderStateMixin {
+class _UserLoginState extends State<UserLogin> with SingleTickerProviderStateMixin {
 
   TextStyle style = TextStyle(fontSize: 20.0,color: Colors.white);
   AnimationController _controller;
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     _controller =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
 
@@ -27,7 +27,7 @@ class _userLoginState extends State<userLogin> with SingleTickerProviderStateMix
   }
   @override
   void dispose() {
-    // TODO: implement dispose
+    
     _controller.dispose();
     super.dispose();
   }
@@ -127,7 +127,7 @@ class _userLoginState extends State<userLogin> with SingleTickerProviderStateMix
                               minWidth: MediaQuery.of(context).size.width/4,
                               padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => userSignup()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => UserSignup()));
                               },
                               child: Text("Register",
                                   textAlign: TextAlign.center,

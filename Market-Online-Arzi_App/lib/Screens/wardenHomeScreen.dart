@@ -1,35 +1,61 @@
 import 'package:flutter/material.dart';
-void main(List<String> args) {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home:wardenHomeScreen(),
-  ));
-}
-
-class wardenHomeScreen extends StatefulWidget{
+import 'package:qr_flutter/qr_flutter.dart';
+class WardenHomeScreen extends StatefulWidget{
   @override
-  wardenHomeScreenState createState() => wardenHomeScreenState();
+  _WardenHomeScreenState createState() => _WardenHomeScreenState();
 }
 
-class wardenHomeScreenState extends State<wardenHomeScreen> {
+class _WardenHomeScreenState extends State<WardenHomeScreen> {
+  String qrData="https://github.com/PROFESSORRQ";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ARZI"),
+        title: Text("Generate"),
+        centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          "hey there",
-          style: new TextStyle(fontSize:30.0,fontWeight: FontWeight.bold),
-          ),
+      body: Container(
+        padding:  EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+              QrImage(data: qrData),
+              SizedBox(height:10.0,),
+              Text("Get your data/link to the QR CODE"),
+              TextField(
+                controller: qrText,
+                decoration: InputDecoration(
+                  hintText: "Enter the Data/Link",
+                ),
+              ),
+              SizedBox(
+                height:20.0 ,
+                ),
+                FlatButton(
+                  padding: EdgeInsets.all(15.0),
+                  child: Text("GENERATE QR CODE"),
+                  onPressed: (){
+                    if(qrText.text.isEmpty){
+                      setState(() {
+                        qrData="https://flutter.dev";
+                      });
+                    }else{
+                      setState(() {
+                        qrData=qrText.text;
+                      });
+                    }
+                  },
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    side: BorderSide(color: Colors.blue, width: 3.0)),
+                  )
+                
+              
+
+        ],),
       ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   icon:Icon(Icons.camera_alt_rounded),
-      //   label: Text("Scan"),
-      //   onPressed: _scanQR,
-      // ),
-     // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+  final qrText =TextEditingController();
 }

@@ -2,24 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:market_online/consumer/userSignup.dart';
+//import 'package:market_online/consumer/userSignup.dart';
 import 'package:market_online/Screens/wardenHomeScreen.dart';
 import 'package:market_online/animation/background_painter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class wardenLogin extends StatefulWidget {
+class WardenLogin extends StatefulWidget {
   @override
-  _wardenLoginState createState() => _wardenLoginState();
+  _WardenLoginState createState() => _WardenLoginState();
 }
 
-class _wardenLoginState extends State<wardenLogin> with SingleTickerProviderStateMixin {
+class _WardenLoginState extends State<WardenLogin> with SingleTickerProviderStateMixin {
 
   TextStyle style = TextStyle(fontSize: 20.0,color: Colors.white);
   AnimationController _controller;
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     _controller =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
 
@@ -27,7 +27,7 @@ class _wardenLoginState extends State<wardenLogin> with SingleTickerProviderStat
   }
   @override
   void dispose() {
-    // TODO: implement dispose
+    
     _controller.dispose();
     super.dispose();
   }
@@ -183,7 +183,7 @@ class _wardenLoginState extends State<wardenLogin> with SingleTickerProviderStat
       try {
         FirebaseAuth auth = FirebaseAuth.instance;
         UserCredential user = await auth.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => wardenHomeScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => WardenHomeScreen()));
       }
       catch(e) {
         print(e.message);

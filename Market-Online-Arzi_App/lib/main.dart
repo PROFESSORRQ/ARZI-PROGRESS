@@ -11,18 +11,18 @@ void main() => runApp(
         home: SafeArea(
           child: Scaffold(
             backgroundColor: HexColor("#b2ebf2"),
-            body: marketOnline(),
+            body: MarketOnline(),
           ),
         ),
       ),
     );
 
-class marketOnline extends StatefulWidget {
+class MarketOnline extends StatefulWidget {
   @override
-  _marketOnlineState createState() => _marketOnlineState();
+  _MarketOnlineState createState() => _MarketOnlineState();
 }
 
-class _marketOnlineState extends State<marketOnline> {
+class _MarketOnlineState extends State<MarketOnline> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,7 +80,7 @@ class _marketOnlineState extends State<marketOnline> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => userLogin()),
+                      MaterialPageRoute(builder: (context) => UserLogin()),
                     );
                   },
                 ),
@@ -104,7 +104,7 @@ class _marketOnlineState extends State<marketOnline> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => wardenLogin()),
+                      MaterialPageRoute(builder: (context) => WardenLogin()),
                     );
                   },
                 ),
