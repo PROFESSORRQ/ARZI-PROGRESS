@@ -50,7 +50,7 @@ class _MarketOnlineState extends State<MarketOnline> {
             
           ),
           SizedBox(
-            height: 90.0,
+            height: 350.0,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -79,6 +79,9 @@ class _MarketOnlineState extends State<MarketOnline> {
                   },
                 ),
               ),
+              SizedBox(
+            height: 10.0,
+          ),
               ButtonTheme(
                 height: 50.0,
                 minWidth: 180.0,
