@@ -11,12 +11,18 @@ import 'package:market_online/Screens/LeaveForm.dart';
 //   ));
 // }
 
+String user;
+
 class HomeScreen extends StatefulWidget{
+  final String id;
+  HomeScreen({Key key, @required this.id}) : super(key: key);
   @override
-  HomeScreenState createState() => HomeScreenState();
+  HomeScreenState createState() => HomeScreenState(id: id);
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  final String id;
+  HomeScreenState({Key key, @required this.id});
 String result="hey there !";
 
 Future _scanQR() async{
@@ -60,7 +66,7 @@ Future _scanQR() async{
         label: Text("Scan"),
         onPressed: () {
           _scanQR();
-          Navigator.push(context, MaterialPageRoute(builder: (context) => LeaveForm()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => LeaveForm(userid: this.id)));
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
