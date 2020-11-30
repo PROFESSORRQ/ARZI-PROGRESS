@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class LeaveForm extends StatefulWidget {
+  final String userid;
+  LeaveForm({Key key, @required this.userid}) : super(key: key);
   @override
-  _LeaveFormState createState() => _LeaveFormState();
+  _LeaveFormState createState() => _LeaveFormState(userid: userid);
 }
 
 class _LeaveFormState extends State<LeaveForm> {
+  final String userid;
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  String _name,_city,_numberofdays,_roll;
+  void inputData() {
+    final User user = auth.currentUser;
+    final uid = user.uid;
+    // here you write the codes to input the data into firestore
+    print("\n\n");
+    print(uid);
+    print("\n\n");
+
+  }
+
+  _LeaveFormState({Key key, @required this.userid});
+
+  String name,city,numberofdays,roll;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextStyle style = TextStyle(fontSize: 20.0,color: Colors.lightBlueAccent);
 
@@ -26,6 +46,7 @@ class _LeaveFormState extends State<LeaveForm> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                SizedBox(height: 15.0,),
                 //Name Field
                 TextFormField(
                   obscureText: false,
@@ -41,9 +62,12 @@ class _LeaveFormState extends State<LeaveForm> {
                       )
                   ),
                   // ignore: missing_return
-                  validator: (input) {if (input.isEmpty) {return 'Please type a Name!!';}
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Please type a name!!';
+                    }
                   },
-                  onSaved: (input) => _name = input,
+                  onSaved: (input) => name = input,
                 ),
                 SizedBox(height: 15.0,),
                 //City Field
@@ -61,9 +85,12 @@ class _LeaveFormState extends State<LeaveForm> {
                       )
                   ),
                   // ignore: missing_return
-                  validator: (input) {if (input.isEmpty) {return 'Please type a valid city name!!';}
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Please type a City name!!';
+                    }
                   },
-                  onSaved: (input) => _city = input,
+                  onSaved: (input) => city = input,
                 ),
                 SizedBox(height: 15.0,),
                 //Number of Days
@@ -82,9 +109,12 @@ class _LeaveFormState extends State<LeaveForm> {
                       )
                   ),
                   // ignore: missing_return
-                  validator: (input) {if (input.isEmpty) {return 'Number of days can\'t be zero!!';}
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'Please type a Number';
+                    }
                   },
-                  onSaved: (input) => _numberofdays = input,
+                  onSaved: (input) => numberofdays = input,
                 ),
                 SizedBox(height: 15.0,),
                 //Roll Number Field
@@ -105,7 +135,7 @@ class _LeaveFormState extends State<LeaveForm> {
                   // ignore: missing_return
                   validator: (input) {if (input.isEmpty) {return 'Roll Number can\'t be zero!!';}
                   },
-                  onSaved: (input) => _numberofdays = input,
+                  onSaved: (input) => roll = input,
                 ),
                 SizedBox(height: 15.0,),
                 Material(
@@ -116,7 +146,25 @@ class _LeaveFormState extends State<LeaveForm> {
                     minWidth: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                     onPressed: () {
+                      final formState = _formKey.currentState;
+                      if(formState.validate()) {
+                        formState.save();
+                        try {
+                          firestore.collection('Permit').add({
+                            'User': userid,
+                            'City': city,
+                            'Name': name,
+                            'Number of days': numberofdays,
+                            'Roll Number': roll
+                          });
+                        }
+                        catch(e) {
+                          print(e.message);
+                        }
+                      }
 
+                      print(userid);
+                      print(name);
                     },
                     child: Text("Submit",
                         textAlign: TextAlign.center,

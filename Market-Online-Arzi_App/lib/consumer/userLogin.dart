@@ -183,7 +183,7 @@ class _userLoginState extends State<userLogin> with SingleTickerProviderStateMix
       try {
         FirebaseAuth auth = FirebaseAuth.instance;
         UserCredential user = await auth.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(id: _email)));
       }
       catch(e) {
         print(e.message);
