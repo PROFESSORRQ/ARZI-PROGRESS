@@ -5,7 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'consumer/userLogin.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'consumer/wardenlogin.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
+//import 'package:flutter_sequence_animation/flutter_sequence_animation.dart';
 void main() => runApp(
       MaterialApp(
         home: SafeArea(
@@ -27,13 +29,13 @@ class _MarketOnlineState extends State<MarketOnline> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-           image: DecorationImage(
-             image: AssetImage("assests/images/THAPAR_BACKGROUND2.jpg"),
-             fit: BoxFit.cover,
-           ),
-         // border: Border.all(color: Colors.black87, width: 5.0),
-         // borderRadius: BorderRadius.circular(10.0)
-          ),
+        image: DecorationImage(
+          image: AssetImage("assests/images/THAPAR_BACKGROUND2.jpg"),
+          fit: BoxFit.cover,
+        ),
+        // border: Border.all(color: Colors.black87, width: 5.0),
+        // borderRadius: BorderRadius.circular(10.0)
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         // crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -42,12 +44,34 @@ class _MarketOnlineState extends State<MarketOnline> {
             radius: 60.0,
             backgroundImage: AssetImage('assests/images/thapar_logo2.png'),
           ),
-          // SizedBox(
-          //   height: 40.0,
-          // ),
+          SizedBox(
+             height: 20.0,
+          ),
+          SizedBox(
+  width: 250.0,
+  child: TypewriterAnimatedTextKit(
+    onTap: () {
+        print("Tap Event");
+      },
+      speed: Duration(milliseconds: 200),
+      pause: Duration(milliseconds:  200),
+      repeatForever: true,
+    text: [
+      "Welcome To The ",
+      "ARZI Portal",
+    ],
+    textStyle: TextStyle(
+        fontSize: 30.0,
+        fontFamily: "Agne",
+        fontWeight: FontWeight.bold
+    ),
+    textAlign: TextAlign.center,
+    alignment: AlignmentDirectional.topStart // or Alignment.topLeft
+  ),
+),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            
+           
           ),
           SizedBox(
             height: 350.0,
@@ -80,8 +104,8 @@ class _MarketOnlineState extends State<MarketOnline> {
                 ),
               ),
               SizedBox(
-            height: 10.0,
-          ),
+                height: 10.0,
+              ),
               ButtonTheme(
                 height: 50.0,
                 minWidth: 180.0,
