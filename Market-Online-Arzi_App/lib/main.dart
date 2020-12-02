@@ -5,64 +5,84 @@ import 'package:flutter/widgets.dart';
 import 'consumer/userLogin.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'consumer/wardenlogin.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
+//import 'package:flutter_sequence_animation/flutter_sequence_animation.dart';
 void main() => runApp(
       MaterialApp(
         home: SafeArea(
           child: Scaffold(
             backgroundColor: HexColor("#b2ebf2"),
-            body: marketOnline(),
+            body: MarketOnline(),
           ),
         ),
       ),
     );
 
-class marketOnline extends StatefulWidget {
+class MarketOnline extends StatefulWidget {
   @override
-  _marketOnlineState createState() => _marketOnlineState();
+  _MarketOnlineState createState() => _MarketOnlineState();
 }
 
-class _marketOnlineState extends State<marketOnline> {
+class _MarketOnlineState extends State<MarketOnline> {
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          // image: DecorationImage(
-          //   image: AssetImage("images/bk2.jpg"),
-          //   fit: BoxFit.cover,
-          // ),
-          border: Border.all(color: Colors.black87, width: 5.0),
-          borderRadius: BorderRadius.circular(10.0)),
+        image: DecorationImage(
+          image: AssetImage("assests/images/THAPAR_BACKGROUND2.jpg"),
+          fit: BoxFit.cover,
+        ),
+        // border: Border.all(color: Colors.black87, width: 5.0),
+        // borderRadius: BorderRadius.circular(10.0)
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Image.asset('assests/images/thapar_logo.png'),
-          SizedBox(
-            height: 40.0,
+          CircleAvatar(
+            radius: 60.0,
+            backgroundImage: AssetImage('assests/images/thapar_logo2.png'),
           ),
+          SizedBox(
+             height: 20.0,
+          ),
+          SizedBox(
+  width: 250.0,
+  child: TypewriterAnimatedTextKit(
+    onTap: () {
+        print("Tap Event");
+      },
+      speed: Duration(milliseconds: 200),
+      pause: Duration(milliseconds:  200),
+      repeatForever: true,
+    text: [
+      "Welcome To The ",
+      "ARZI Portal",
+    ],
+    textStyle: TextStyle(
+        fontSize: 30.0,
+        fontFamily: "Agne",
+        fontWeight: FontWeight.bold
+    ),
+    textAlign: TextAlign.center,
+    alignment: AlignmentDirectional.topStart // or Alignment.topLeft
+  ),
+),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'ARZI\nThapar Institute\nEngineering & Technology',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 38.0,
-                  fontWeight: FontWeight.bold,
-                  color: HexColor("#ff0000"),
-                ),
-              )
-            ],
+
           ),
           SizedBox(
-            height: 50.0,
+            height: 350.0,
           ),
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ButtonTheme(
-                height: 60.0,
+                height: 50.0,
                 minWidth: 180.0,
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
@@ -80,13 +100,16 @@ class _marketOnlineState extends State<marketOnline> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => userLogin()),
+                      MaterialPageRoute(builder: (context) => UserLogin()),
                     );
                   },
                 ),
               ),
+              SizedBox(
+                height: 10.0,
+              ),
               ButtonTheme(
-                height: 60.0,
+                height: 50.0,
                 minWidth: 180.0,
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
@@ -104,7 +127,7 @@ class _marketOnlineState extends State<marketOnline> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => wardenLogin()),
+                      MaterialPageRoute(builder: (context) => WardenLogin()),
                     );
                   },
                 ),

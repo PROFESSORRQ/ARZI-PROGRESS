@@ -7,19 +7,19 @@ import 'package:market_online/Screens/HomeScreen.dart';
 import 'package:market_online/animation/background_painter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class userLogin extends StatefulWidget {
+class UserLogin extends StatefulWidget {
   @override
-  _userLoginState createState() => _userLoginState();
+  _UserLoginState createState() => _UserLoginState();
 }
 
-class _userLoginState extends State<userLogin> with SingleTickerProviderStateMixin {
+class _UserLoginState extends State<UserLogin> with SingleTickerProviderStateMixin {
 
   TextStyle style = TextStyle(fontSize: 20.0,color: Colors.white);
   AnimationController _controller;
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     _controller =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
 
@@ -27,19 +27,19 @@ class _userLoginState extends State<userLogin> with SingleTickerProviderStateMix
   }
   @override
   void dispose() {
-    // TODO: implement dispose
+    
     _controller.dispose();
     super.dispose();
   }
 
   String _email,_password;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+bool _showPassword=false;
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: HexColor("#ff414d"),
+      //backgroundColor: HexColor("#ff414d"),
       body: Form(
         key: _formKey,
         child: Stack(
@@ -78,7 +78,7 @@ class _userLoginState extends State<userLogin> with SingleTickerProviderStateMix
                     SizedBox(height: 25.0),
                     TextFormField(
                       obscureText: false,
-                      style: style,
+                      style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                           hintText: "Email",
@@ -97,22 +97,30 @@ class _userLoginState extends State<userLogin> with SingleTickerProviderStateMix
                       onSaved: (input) => _email = input,
                     ),
                     SizedBox(height: 25.0),
-                    TextFormField(
-                      obscureText: true,
-                      style: style,
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                          fillColor: HexColor("#000000"),
-                          hintText: "Password",
-                          border:
-                          OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
-                      ),
-                      validator: (input) {
-                        if (input.length < 6) {
-                          return 'your password need to be at least 6 characters';
-                        }
-                      },
-                      onSaved: (input) => _password = input,
+                    TextFormField(style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                      suffixIcon: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            _showPassword=!_showPassword;
+                          });
+                        },
+                        child: Icon(
+                          _showPassword ? Icons.visibility : Icons.visibility_off,
+                          ),
+                        ),
+                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                        hintText: "Password",
+                        border:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
+                    ),
+                    obscureText: !_showPassword,
+                    validator: (input) {
+                      if (input.length < 6) {
+                        return 'your password need to be at least 6 characters';
+                      }
+                    },
+                    onSaved: (input) => _password = input,
                     ),
                     SizedBox(height: 35.0,),
                     Row(
@@ -127,7 +135,7 @@ class _userLoginState extends State<userLogin> with SingleTickerProviderStateMix
                               minWidth: MediaQuery.of(context).size.width/4,
                               padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => userSignup()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => UserSignup()));
                               },
                               child: Text("Register",
                                   textAlign: TextAlign.center,

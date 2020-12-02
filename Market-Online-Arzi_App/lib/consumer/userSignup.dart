@@ -4,22 +4,23 @@ import 'package:flutter/material.dart';
 
 import '../Screens/HomeScreen.dart';
 
-class userSignup extends StatefulWidget {
+class UserSignup extends StatefulWidget {
   @override
-  _userSignupState createState() => _userSignupState();
+  _UserSignupState createState() => _UserSignupState();
 }
 
-class _userSignupState extends State<userSignup> {
+class _UserSignupState extends State<UserSignup> {
 
   TextStyle style = TextStyle(fontSize: 20.0,color: Colors.white);
 
-  String _email,_password;
+  String _email,_password,input1,input2;
+  bool _showPassword=false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -54,7 +55,7 @@ class _userSignupState extends State<userSignup> {
                   SizedBox(height: 25.0),
                   TextFormField(
                     obscureText: false,
-                    style: style,
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                         hintText: "Email",
@@ -74,20 +75,57 @@ class _userSignupState extends State<userSignup> {
                   ),
                   SizedBox(height: 25.0),
                   TextFormField(
-                    obscureText: true,
-                    style: style,
+                  
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
+                      suffixIcon: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            _showPassword=!_showPassword;
+                          });
+                        },
+                        child: Icon(
+                          _showPassword ? Icons.visibility : Icons.visibility_off,
+                          ),
+                        ),
                         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                         hintText: "Password",
                         border:
                         OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
                     ),
-                    validator: (input) {
-                      if (input.length < 6) {
+                    obscureText: !_showPassword,
+                    validator: (input1) {
+                      if (input1.length < 6) {
                         return 'your password need to be at least 6 characters';
                       }
                     },
-                    onSaved: (input) => _password = input,
+                    onSaved: (input1) => _password = input1,
+                  ),
+                  SizedBox(height: 25.0),
+                  TextFormField(style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                      suffixIcon: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            _showPassword=!_showPassword;
+                          });
+                        },
+                        child: Icon(
+                          _showPassword ? Icons.visibility : Icons.visibility_off,
+                          ),
+                        ),
+                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                        hintText: "Password",
+                        border:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
+                    ),
+                    obscureText: !_showPassword,
+                    validator: (input2) {
+                      if (input1!=input2) {
+                        return 'Password did not match';
+                      }
+                    },
+                    onSaved: (input2) => _password = input2,
                   ),
                   SizedBox(height: 35.0,),
                   Material(
