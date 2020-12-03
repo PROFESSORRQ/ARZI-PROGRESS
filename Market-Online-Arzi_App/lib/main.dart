@@ -25,6 +25,7 @@ class MarketOnline extends StatefulWidget {
 }
 
 class _MarketOnlineState extends State<MarketOnline> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -71,7 +72,7 @@ class _MarketOnlineState extends State<MarketOnline> {
 ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-           
+
           ),
           SizedBox(
             height: 350.0,

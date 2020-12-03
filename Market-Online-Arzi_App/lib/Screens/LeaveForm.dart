@@ -36,6 +36,9 @@ class _LeaveFormState extends State<LeaveForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Form"),
+      ),
       backgroundColor: Colors.white,
       body: Form(
         key: _formKey,
@@ -141,7 +144,7 @@ class _LeaveFormState extends State<LeaveForm> {
                 Material(
                   elevation: 5.0,
                   borderRadius: BorderRadius.circular(30.0),
-                  color: Color(0xff01A0C7),
+                  color: Colors.blue,
                   child: MaterialButton(
                     minWidth: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
