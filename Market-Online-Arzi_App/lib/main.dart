@@ -26,7 +26,6 @@ class MarketOnline extends StatefulWidget {
 
 class _MarketOnlineState extends State<MarketOnline> {
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
