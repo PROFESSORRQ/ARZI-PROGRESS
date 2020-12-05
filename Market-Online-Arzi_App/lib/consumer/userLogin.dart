@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:market_online/consumer/userSignup.dart';
+//import 'package:market_online/consumer/userSignup.dart';
 import 'package:market_online/Screens/HomeScreen.dart';
 import 'package:market_online/animation/background_painter.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -97,7 +97,8 @@ bool _showPassword=false;
                       onSaved: (input) => _email = input,
                     ),
                     SizedBox(height: 25.0),
-                    TextFormField(style: TextStyle(color: Colors.black),
+                    TextFormField(
+                      style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       suffixIcon: GestureDetector(
                         onTap: (){
@@ -125,27 +126,7 @@ bool _showPassword=false;
                     SizedBox(height: 35.0,),
                     Row(
                       children: [
-                        //Register Button
-                        Expanded(
-                          child: Material(
-                            elevation: 5.0,
-                            borderRadius: BorderRadius.circular(30.0),
-                            color: Color(0xff01A0C7),
-                            child: MaterialButton(
-                              minWidth: MediaQuery.of(context).size.width/4,
-                              padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => UserSignup()));
-                              },
-                              child: Text("Register",
-                                  textAlign: TextAlign.center,
-                                  style: style.copyWith(
-                                      color: Colors.white, fontWeight: FontWeight.bold)
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 10.0,),
+                       
                         //Login Button
                         Expanded(
                           child: Material(

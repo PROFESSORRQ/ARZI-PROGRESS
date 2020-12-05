@@ -18,10 +18,10 @@ class _MessPageState extends State<MessPage> {
         new ListView(
         children: <Widget>
     [
-    new ListTile(
-    leading: Icon(Icons.receipt),
-    title: new Text("Mess Bill for the month of November"),
-    ),
+    // new ListTile(
+    // leading: Icon(Icons.receipt),
+    // title: new Text("Mess Bill for the month of November"),
+    // ),
           new Divider(
             height: 10.0,
           ),
