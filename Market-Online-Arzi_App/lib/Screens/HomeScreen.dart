@@ -86,7 +86,7 @@ class HomeScreenState extends State<HomeScreen> {
       drawer: new Drawer(
         child: ListView(children: <Widget>[
           new UserAccountsDrawerHeader(
-            accountName: Text("Himanshi Mittal"),
+            // accountName: Text("Himanshi Mittal"),
             accountEmail: Text(userName()),
             currentAccountPicture: new CircleAvatar(
               backgroundImage: new NetworkImage(

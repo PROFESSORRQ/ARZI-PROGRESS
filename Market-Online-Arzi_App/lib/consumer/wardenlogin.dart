@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:market_online/Screens/wardenHome.dart';
 //import 'package:market_online/consumer/userSignup.dart';
 import 'package:market_online/Screens/wardenHomeScreen.dart';
 import 'package:market_online/animation/background_painter.dart';
@@ -183,7 +184,7 @@ class _WardenLoginState extends State<WardenLogin> with SingleTickerProviderStat
       try {
         FirebaseAuth auth = FirebaseAuth.instance;
         UserCredential user = await auth.signInWithEmailAndPassword(email: _email, password: _password);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => WardenHomeScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => wardenhome()));
       }
       catch(e) {
         print(e.message);

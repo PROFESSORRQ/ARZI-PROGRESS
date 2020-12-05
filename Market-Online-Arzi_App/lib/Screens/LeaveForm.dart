@@ -160,6 +160,7 @@ class _LeaveFormState extends State<LeaveForm> {
                             'Number of days': numberofdays,
                             'Roll Number': roll
                           });
+                          formState.reset();
                         }
                         catch(e) {
                           print(e.message);
