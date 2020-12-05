@@ -80,23 +80,27 @@ class HomeScreenState extends State<HomeScreen> {
         title: Text("ARZI"),
       ),
       body: Center(
-        child: Text(
-          "Hey there!!",
-          style: new TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
-        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircleAvatar(
+              radius:90.0,
+              backgroundImage:AssetImage('assests/images/app_logo.PNG')
+            )
+          ],)
       ),
       drawer: new Drawer(
         child: ListView(children: <Widget>[
           new UserAccountsDrawerHeader(
-            accountName: Text("Welcome"),
+            accountName: Text("Welcome",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),
             accountEmail: Text(userName()),
             currentAccountPicture: new CircleAvatar(
               backgroundImage: AssetImage('assests/images/thapar_logo2.png'),
             ),
           ),
           new ListTile(
-            leading: Icon(Icons.campaign),
-            title: new Text('Announcements'),
+            leading: Icon(Icons.campaign,color: Colors.red.shade700,),
+            title: new Text('Announcements',style: TextStyle(fontSize: 20),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
@@ -107,8 +111,8 @@ class HomeScreenState extends State<HomeScreen> {
             },
           ),
           new ListTile(
-            leading: Icon(Icons.article),
-            title: new Text('Hostel Rules'),
+            leading: Icon(Icons.article,color: Colors.red.shade700,),
+            title: new Text('Hostel Rules',style: TextStyle(fontSize: 20),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
@@ -118,8 +122,8 @@ class HomeScreenState extends State<HomeScreen> {
             },
           ),
           new ListTile(
-            leading: Icon(Icons.info),
-            title: new Text('Hostel Information'),
+            leading: Icon(Icons.info,color: Colors.red.shade700,),
+            title: new Text('Hostel Information',style: TextStyle(fontSize: 20),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
@@ -129,8 +133,8 @@ class HomeScreenState extends State<HomeScreen> {
             },
           ),
           new ListTile(
-            leading: Icon(Icons.local_dining),
-            title: new Text('Mess Details'),
+            leading: Icon(Icons.local_dining,color: Colors.red.shade700,),
+            title: new Text('Mess Details',style: TextStyle(fontSize: 20)),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
@@ -140,8 +144,8 @@ class HomeScreenState extends State<HomeScreen> {
             },
           ),
           new ListTile(
-            leading: Icon(Icons.feedback),
-            title: new Text('Complaint Box'),
+            leading: Icon(Icons.feedback,color: Colors.red.shade700,),
+            title: new Text('Complaint Box',style: TextStyle(fontSize: 20),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
@@ -151,8 +155,8 @@ class HomeScreenState extends State<HomeScreen> {
             },
           ),
           new ListTile(
-            leading: Icon(Icons.fastfood),
-            title: new Text('Hostel Canteen'),
+            leading: Icon(Icons.fastfood,color: Colors.red.shade700,),
+            title: new Text('Hostel Canteen',style: TextStyle(fontSize: 20),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
@@ -162,8 +166,8 @@ class HomeScreenState extends State<HomeScreen> {
             },
           ),
           new ListTile(
-            leading: Icon(Icons.local_laundry_service),
-            title: new Text('Hostel Laundry'),
+            leading: Icon(Icons.local_laundry_service,color: Colors.red.shade700,),
+            title: new Text('Hostel Laundry',style: TextStyle(fontSize: 20),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
@@ -173,8 +177,8 @@ class HomeScreenState extends State<HomeScreen> {
             },
           ),
           new ListTile(
-            leading: Icon(Icons.description_sharp),
-            title: new Text('Mess Bill'),
+            leading: Icon(Icons.description_sharp,color: Colors.red.shade700,),
+            title: new Text('Mess Bill',style: TextStyle(fontSize: 20),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
@@ -184,8 +188,8 @@ class HomeScreenState extends State<HomeScreen> {
             },
           ),
           new ListTile(
-            leading: Icon(Icons.call),
-            title: new Text('About Us'),
+            leading: Icon(Icons.call,color: Colors.red.shade700,),
+            title: new Text('About Us',style: TextStyle(fontSize: 20,),),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.push(
