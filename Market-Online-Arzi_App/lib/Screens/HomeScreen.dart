@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:market_online/HamburgerMenu/MessBill.dart';
+import 'package:market_online/HamburgerMenu/aboutUs.dart';
 import 'package:market_online/Screens/LeaveForm.dart';
 import 'package:market_online/HamburgerMenu/announcements.dart';
 import 'package:market_online/HamburgerMenu/canteen.dart';
@@ -86,11 +88,10 @@ class HomeScreenState extends State<HomeScreen> {
       drawer: new Drawer(
         child: ListView(children: <Widget>[
           new UserAccountsDrawerHeader(
-            accountName: Text("Himanshi Mittal"),
+            accountName: Text("Welcome"),
             accountEmail: Text(userName()),
             currentAccountPicture: new CircleAvatar(
-              backgroundImage: new NetworkImage(
-                  'http://4.bp.blogspot.com/-RMs5ZFqAt3c/VgRA91henqI/AAAAAAAAKVk/2bBEZBmGi3o/s1600/jay-shree-krishna-wall-paper-image.jpg'),
+              backgroundImage: AssetImage('assests/images/thapar_logo2.png'),
             ),
           ),
           new ListTile(
@@ -170,9 +171,32 @@ class HomeScreenState extends State<HomeScreen> {
                   new MaterialPageRoute(
                       builder: (BuildContext context) => new LaundryPage()));
             },
+          ),
+          new ListTile(
+            leading: Icon(Icons.description_sharp),
+            title: new Text('Mess Bill'),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (BuildContext context) => new MessBill()));
+            },
+          ),
+          new ListTile(
+            leading: Icon(Icons.call),
+            title: new Text('About Us'),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (BuildContext context) => new AboutUs()));
+            },
           )
         ]),
       ),
+      
       floatingActionButton: FloatingActionButton.extended(
         icon: Icon(Icons.camera_alt_rounded),
         label: Text("Scan"),

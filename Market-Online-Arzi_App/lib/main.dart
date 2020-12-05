@@ -39,7 +39,7 @@ class _MarketOnlineState extends State<MarketOnline> {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
+         //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           CircleAvatar(
             radius: 60.0,
@@ -54,6 +54,7 @@ class _MarketOnlineState extends State<MarketOnline> {
     onTap: () {
         print("Tap Event");
       },
+      
       speed: Duration(milliseconds: 200),
       pause: Duration(milliseconds:  200),
       repeatForever: true,

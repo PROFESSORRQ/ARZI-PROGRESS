@@ -34,7 +34,7 @@ class _WardenLoginState extends State<WardenLogin> with SingleTickerProviderStat
 
   String _email,_password;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+bool _showPassword=false;
   @override
   Widget build(BuildContext context) {
 
@@ -65,20 +65,13 @@ class _WardenLoginState extends State<WardenLogin> with SingleTickerProviderStat
                     Row(
                       // mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        // Text(
-                        //   'Login',
-                        //   style: TextStyle(
-                        //     fontSize: 50.0,
-                        //     fontWeight: FontWeight.bold,
-                        //     color: Colors.yellow,
-                        //   ),
-                        // )
+                        
                       ],
                     ),
                     SizedBox(height: 25.0),
                     TextFormField(
                       obscureText: false,
-                      style: style,
+                      style:  TextStyle(color: Colors.black),
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                           hintText: "Email",
@@ -97,22 +90,30 @@ class _WardenLoginState extends State<WardenLogin> with SingleTickerProviderStat
                       onSaved: (input) => _email = input,
                     ),
                     SizedBox(height: 25.0),
-                    TextFormField(
-                      obscureText: true,
-                      style: style,
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                          fillColor: HexColor("#000000"),
-                          hintText: "Password",
-                          border:
-                          OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
-                      ),
-                      validator: (input) {
-                        if (input.length < 6) {
-                          return 'your password need to be at least 6 characters';
-                        }
-                      },
-                      onSaved: (input) => _password = input,
+                    TextFormField(style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                      suffixIcon: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            _showPassword=!_showPassword;
+                          });
+                        },
+                        child: Icon(
+                          _showPassword ? Icons.visibility : Icons.visibility_off,
+                          ),
+                        ),
+                        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                        hintText: "Password",
+                        border:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
+                    ),
+                    obscureText: !_showPassword,
+                    validator: (input) {
+                      if (input.length < 6) {
+                        return 'your password need to be at least 6 characters';
+                      }
+                    },
+                    onSaved: (input) => _password = input,
                     ),
                     SizedBox(height: 35.0,),
                     Row(

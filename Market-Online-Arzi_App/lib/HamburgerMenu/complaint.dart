@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
 class ComplaintPage extends StatefulWidget {
   @override
   _ComplaintPageState createState() => _ComplaintPageState();
 }
 
 class _ComplaintPageState extends State<ComplaintPage> {
-  String details="";
+  String details = "";
   String workerNeeded = 'Carpenter';
 
   String timeslot = '10-11';
@@ -118,37 +117,83 @@ class _ComplaintPageState extends State<ComplaintPage> {
                 new Divider(
                   height: 20.0,
                 ),
-                RaisedButton(
-                  color: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                      side: BorderSide(color: Colors.blue)),
-                  onPressed: () {
-                    final formState = _formKey.currentState;
-                    if(formState.validate()) {
-                      formState.save();
-                      try {
-                        final User user = auth.currentUser;
-                        final user_email = user.email;
+                Row(
+                children:[
 
-                        print(user_email);
-                        print(workerNeeded);
-                        print(timeslot);
-                        print(details);
-                        firestore.collection('Complaints').add({
-                          'user': user_email,
-                          'workerNeeded': workerNeeded,
-                          'TimeSlot': timeslot,
-                          'Details': details,
-                        });
-                      }
-                      catch(e) {
-                        print(e.message);
-                      }
-                    }
-                  },
-                  child: const Text('Submit', style: TextStyle(fontSize: 20)),
+                
+                Expanded(
+                  child: Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Color(0xff01A0C7),
+                    child: MaterialButton(
+                      minWidth: MediaQuery.of(context).size.width / 4,
+                      padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                      // onPressed: signIn,
+                      onPressed: () {
+                        final formState = _formKey.currentState;
+                        if (formState.validate()) {
+                          formState.save();
+                          try {
+                            final User user = auth.currentUser;
+                            final user_email = user.email;
+
+                            print(user_email);
+                            print(workerNeeded);
+                            print(timeslot);
+                            print(details);
+                            firestore.collection('Complaints').add({
+                              'user': user_email,
+                              'workerNeeded': workerNeeded,
+                              'TimeSlot': timeslot,
+                              'Details': details,
+                            });
+                          } catch (e) {
+                            print(e.message);
+                          }
+                        }
+                      },
+                      child: Text("Submit",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ),
                 ),
+                ]
+                )
+                // RaisedButton(
+                //   color: Colors.blue,
+                //   shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(18.0),
+                //       side: BorderSide(color: Colors.blue)),
+                //   onPressed: () {
+                //     final formState = _formKey.currentState;
+                //     if(formState.validate()) {
+                //       formState.save();
+                //       try {
+                //         final User user = auth.currentUser;
+                //         final user_email = user.email;
+
+                //         print(user_email);
+                //         print(workerNeeded);
+                //         print(timeslot);
+                //         print(details);
+                //         firestore.collection('Complaints').add({
+                //           'user': user_email,
+                //           'workerNeeded': workerNeeded,
+                //           'TimeSlot': timeslot,
+                //           'Details': details,
+                //         });
+                //       }
+                //       catch(e) {
+                //         print(e.message);
+                //       }
+                //     }
+                //   },
+                //   child: const Text('Submit', style: TextStyle(fontSize: 20)),
+                // ),
               ]),
             ),
           ),

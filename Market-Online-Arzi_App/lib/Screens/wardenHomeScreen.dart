@@ -16,9 +16,9 @@ class _WardenHomeScreenState extends State<WardenHomeScreen> {
       ),
       body: Container(
         padding:  EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: ListView(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
               QrImage(data: qrData),
               SizedBox(height:10.0,),
