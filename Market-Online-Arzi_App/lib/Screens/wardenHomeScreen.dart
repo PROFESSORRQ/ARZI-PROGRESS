@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 class WardenHomeScreen extends StatefulWidget{
   @override
@@ -32,10 +33,19 @@ class _WardenHomeScreenState extends State<WardenHomeScreen> {
               SizedBox(
                 height:20.0 ,
                 ),
-                FlatButton(
-                  padding: EdgeInsets.all(15.0),
-                  child: Text("GENERATE QR CODE"),
-                  onPressed: (){
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ButtonTheme(
+                      height:50.0,
+                      minWidth: 180.0,
+                      child: RaisedButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0),
+                      side:BorderSide(color: HexColor("#00bcd4"),width: 3.0),),
+                      color: HexColor("#00bcd4"),
+                      child: Text('Generate QR Code',
+                      style:TextStyle(color:Colors.white,
+                      fontSize: 30.0,),),
+                      onPressed: (){
                     if(qrText.text.isEmpty){
                       setState(() {
                         qrData="https://flutter.dev";
@@ -45,11 +55,34 @@ class _WardenHomeScreenState extends State<WardenHomeScreen> {
                         qrData=qrText.text;
                       });
                     }
-                  },
+                  },),
+                    ),
+                    SizedBox(
+                height: 10.0,
+              ),
+              ButtonTheme(
+                height: 50.0,
+                minWidth: 200.0,
+                child: RaisedButton(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    side: BorderSide(color: Colors.blue, width: 3.0)),
-                  )
+                    borderRadius: BorderRadius.circular(32.0),
+                    side: BorderSide(color: HexColor("#00bcd4"), width: 3.0),
+                  ),
+                  color: HexColor("#00bcd4"),
+                  child: Text(
+                    'Export as PNG or JPEG',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30.0,
+                    ),
+                  ),
+                  onPressed: (){},
+                ),
+              ),
+                  ],
+                )
+                
+  
                 
               
 

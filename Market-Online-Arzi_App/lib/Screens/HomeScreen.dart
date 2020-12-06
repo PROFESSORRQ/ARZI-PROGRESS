@@ -12,7 +12,9 @@ import 'package:market_online/HamburgerMenu/laundry.dart';
 import 'package:market_online/HamburgerMenu/mess.dart';
 import 'package:market_online/HamburgerMenu/rules.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:flutter_particles/particles.dart';
+import 'package:flutter_particles/draw_particles.dart';
+import 'package:flutter_particles/particle.dart';
 // void main(List<String> args) {
 //   runApp(MaterialApp(
 //     // debugShowCheckedModeBanner: false,
@@ -76,18 +78,24 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.blue[300],
+// body:new Particles(50 , Colors.white),
       appBar: AppBar(
         title: Text("ARZI"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CircleAvatar(
-              radius:90.0,
-              backgroundImage:AssetImage('assests/images/app_logo.PNG')
-            )
-          ],)
+        child: Stack(
+                  children:[ 
+                    new Particles(50 , Colors.white),
+                    Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              CircleAvatar(
+                radius:90.0,
+                backgroundImage:AssetImage('assests/images/app_logo.PNG')
+              )
+            ],),]
+        )
       ),
       drawer: new Drawer(
         child: ListView(children: <Widget>[

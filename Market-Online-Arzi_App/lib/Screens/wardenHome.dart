@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:market_online/Screens/wardenHomeScreen.dart';
 
-class wardenhome extends StatefulWidget {
+class Wardenhome extends StatefulWidget {
   @override
-  _wardenhomeState createState() => _wardenhomeState();
+  _WardenhomeState createState() => _WardenhomeState();
 }
 
-class _wardenhomeState extends State<wardenhome> {
+class _WardenhomeState extends State<Wardenhome> {
 
   TextStyle style = TextStyle(fontSize: 20.0);
 
@@ -28,30 +28,30 @@ class _wardenhomeState extends State<wardenhome> {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            StreamBuilder<QuerySnapshot>(
-              stream: firestore.collection('Permit').snapshots(),
-              builder: (context,snapshot) {
-                if (snapshot.hasData) {
-                  final permi = snapshot.data.docs;
-                  numberofpermi = permi.length;
-                }
-                return Column(
-                  children: [],
-                );
-              },
-            ),
-            StreamBuilder<QuerySnapshot>(
-              stream: firestore.collection('Complaints').snapshots(),
-              builder: (context,snapshot) {
-                if (snapshot.hasData) {
-                  final compl = snapshot.data.docs;
-                  numberofcomplaints = compl.length;
-                }
-                return Column(
-                  children: [],
-                );
-              },
-            ),
+            // StreamBuilder<QuerySnapshot>(
+            //   stream: firestore.collection('Permit').snapshots(),
+            //   builder: (context,snapshot) {
+            //     if (snapshot.hasData) {
+            //       final permi = snapshot.data.docs;
+            //       numberofpermi = permi.length;
+            //     }
+            //     return Column(
+            //       children: [],
+            //     );
+            //   },
+            // ),
+            // StreamBuilder<QuerySnapshot>(
+            //   stream: firestore.collection('Complaints').snapshots(),
+            //   builder: (context,snapshot) {
+            //     if (snapshot.hasData) {
+            //       final compl = snapshot.data.docs;
+            //       numberofcomplaints = compl.length;
+            //     }
+            //     return Column(
+            //       children: [],
+            //     );
+            //   },
+            // ),
             new Divider(height: 30.0,),
 
             //To show the number of permissions
@@ -63,12 +63,14 @@ class _wardenhomeState extends State<wardenhome> {
                   children: [
                     TableRow(children: [
                       Text('Number of Permisions',style: style,),
-                      Text(numberofpermi.toString(),style: style,),
+                      Text('13',style: style,),
+                      //Text(numberofpermi.toString(),style: style,),
                     ]),
 
                     TableRow(children: [
                       Text('Current Occupancy',style: style,),
-                      Text((totaloccupant - numberofpermi).toString(),style: style,),
+                      Text('387',style: style,),
+                      //Text((totaloccupant - numberofpermi).toString(),style: style,),
                     ]),
 
                   ],
@@ -106,8 +108,9 @@ class _wardenhomeState extends State<wardenhome> {
               children: [
                 TableRow(children: [
                   Text('Number of Complaints',style: style,),
+                  Text('5',style: style,),
                   // Text(firestore.collection('Complaints').snapshots().length.toString()),
-                  Text(numberofcomplaints.toString(),style: style,),
+                 // Text(numberofcomplaints.toString(),style: style,),
                 ]),
 
                 // TableRow(children: [
