@@ -10,7 +10,7 @@ The app consist of various features like asking for permission to go home by sca
 ## ScreenShot of the application
 <a href="https://ibb.co/545zf1V"><img src="https://i.ibb.co/vqJrKc8/ARZI.png" alt="ARZI" border="0"></a>
 ## Methodology
-<a href="https://ibb.co/545zf1V"><img src="https://i.ibb.co/vqJrKc8/ARZI.png" alt="ARZI" border="0"></a>
+<a href="https://ibb.co/BnHW7WD"><img src="https://i.ibb.co/bbjwywh/ARZI-drawio.png" alt="ARZI-drawio" border="1"></a>
 ## Novelty
 1. The hostel managment process is of great concern
 2. The Application provides seemless and smooth flow of all the process done on phone without using single paper
