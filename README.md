@@ -12,8 +12,8 @@ The app consist of various features like asking for permission to go home by sca
 ## Methodology
 <a href="https://ibb.co/BnHW7WD"><img src="https://i.ibb.co/bbjwywh/ARZI-drawio.png" alt="ARZI-drawio" border="1"></a>
 ## Novelty
-1. The hostel managment process is of great concern
-2. The Application provides seemless and smooth flow of all the process done on phone without using single paper
+1. The hostel management process is of great concern
+2. The Application provides seamless and smooth flow of all the process done on phone without using single paper
 3. No need to record the data in registers and store them
 4. Can be done only when you are present inside campus.
 
